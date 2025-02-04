@@ -1,0 +1,21 @@
+# Minecraft Server
+/backups
+/config
+/data
+ip.txt
+.env
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+*.iml
+
+# Backup files
+*.bak
+*.tmp
+*.swp
