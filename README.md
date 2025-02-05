@@ -84,6 +84,9 @@ All scripts rely on environment variables loaded from a `.env` file. See the [En
     BACKUP_SCRIPT=./backup.py
     ```
 
+5. **Download the `itzg/minecraft-server` Image**
+        In Docker Desktop, go to the "Images" tab and search for `itzg/minecraft-server`. Click "Pull" to download the image.
+
 ## Usage
 
 ### Starting/Restarting the Server
@@ -92,3 +95,20 @@ Run the `run.py` script to either restart an existing container or start it usin
 
 ```bash
 python run.py
+```
+
+### Shutting Down the Server
+
+Run the `shutdown.py` script to gracefully shut down the Minecraft server. This script will perform a backup, stop the Docker container, and send a Discord notification.
+
+```bash
+python shutdown.py
+```
+
+### Running a Backup
+
+Run the `backup.py` script to create a timestamped backup of the Minecraft server data. The script will also clean up old backups and send a Discord notification.
+
+```bash
+python backup.py
+```
