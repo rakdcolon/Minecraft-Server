@@ -8,7 +8,7 @@ services:
     environment:
       EULA: "TRUE"                  # Accept Minecraft's EULA
       VERSION: "1.20.1"             # Change to specific version if needed
-      TYPE: "FORGE"                 # Server type (e.g., VANILLA, FORGE, SPIGOT, PAPER)
+      TYPE: "FORGE"                 # Server type (e.g., VANILLA, FORGE)
       MEMORY: "4G"                  # Adjust memory as required
       OPS: "rakdcolon"              # Add your username as an operator
     volumes:
