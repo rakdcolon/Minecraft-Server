@@ -9,13 +9,13 @@ services:
       EULA: "TRUE"                  # Accept Minecraft's EULA
       VERSION: "1.20.1"             # Change to specific version if needed
       TYPE: "FORGE"                 # Server type (e.g., VANILLA, FORGE)
-      MEMORY: "4G"                  # Adjust memory as required
-      OPS: "rakdcolon"              # Add your username as an operator
+      MEMORY: "12G"                 # Adjust memory as required
+      OPS: "rakdcolon, goofygarlic" # Add your username as an operator
     volumes:
       - "./data:/data"              # Persistent world and server data
       - "./config:/config"          # Custom configuration files
       - "./mods:/mods"              # Mods folder for Forge/Fabric
-    restart: unless-stopped
+    restart: on-failure:3
 
   backup:
     image: alpine
