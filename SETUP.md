@@ -3,7 +3,9 @@
 ## Prerequisites
 
 - Docker Engine 24+ with the Compose plugin
-- Ports `25566` free on the host (change in `docker-compose.yml` if not)
+- ~25 GB free disk (mod pack + world growth with Terralith/Tectonic/BoP + 14 days of backups)
+- At least 12 GB RAM available (10 GB for the JVM + headroom for OS and Docker)
+- Port `25566` free on the host (change in `docker-compose.yml` if not)
 
 ## First-time install
 

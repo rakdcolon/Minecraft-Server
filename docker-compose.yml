@@ -20,7 +20,7 @@ services:
     tty: true
     healthcheck:
       test: ["CMD", "mc-health"]
-      start_period: 2m
+      start_period: 10m
       interval: 30s
       timeout: 10s
       retries: 5
@@ -37,7 +37,7 @@ services:
       RCON_HOST: minecraft
       RCON_PORT: ${RCON_PORT:-25575}
       RCON_PASSWORD: ${RCON_PASSWORD}
-      INITIAL_DELAY: 5m
+      INITIAL_DELAY: 10m
       PAUSE_IF_NO_PLAYERS: "true"
       TZ: America/New_York
     volumes:
