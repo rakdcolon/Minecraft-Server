@@ -1,0 +1,24 @@
+# Secrets
+.env
+
+# Runtime data — world, logs, server files
+data/*
+!data/.gitkeep
+
+# Backups (binary, large)
+backups/*
+!backups/.gitkeep
+
+# Mod jars — track in MODLIST.md, not git
+mods/*
+!mods/.gitkeep
+
+# Mod-generated config (optional: comment this out if you want to pin configs)
+config/*
+!config/.gitkeep
+
+# Old server snapshots
+.archive/
+
+# macOS
+.DS_Store

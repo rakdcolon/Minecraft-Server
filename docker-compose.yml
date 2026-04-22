@@ -1,0 +1,46 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:java17
+    container_name: minecraft-server
+    ports:
+      - "25566:25565"
+    env_file:
+      - .env
+    environment:
+      EULA: "TRUE"
+      UID: 1000
+      GID: 1000
+      USE_AIKAR_FLAGS: "true"
+    volumes:
+      - ./data:/data
+      - ./mods:/mods:ro
+      - ./config:/config
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    healthcheck:
+      test: ["CMD", "mc-health"]
+      start_period: 2m
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  backup:
+    image: itzg/mc-backup
+    container_name: minecraft-backup
+    depends_on:
+      minecraft:
+        condition: service_healthy
+    environment:
+      BACKUP_INTERVAL: ${BACKUP_INTERVAL:-1h}
+      PRUNE_BACKUPS_DAYS: ${BACKUP_PRUNE_DAYS:-14}
+      RCON_HOST: minecraft
+      RCON_PORT: ${RCON_PORT:-25575}
+      RCON_PASSWORD: ${RCON_PASSWORD}
+      INITIAL_DELAY: 5m
+      PAUSE_IF_NO_PLAYERS: "true"
+      TZ: America/New_York
+    volumes:
+      - ./data:/data:ro
+      - ./backups:/backups
+    restart: unless-stopped
